@@ -2,20 +2,21 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     display: flex;
-    justify-content: center; 
-    align-items: flex-start;
-    margin: 0 auto; 
-    max-width: 1200px;
+    flex-direction: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 98%;
 `;
 
 export const FormContainer = styled.form`
-    width: 33%;
+    width: 35%;
     padding: 20px;
+    padding-right: 15rem;
 `;
 
 export const Title = styled.h1`
     font-size: 28px;
-    color: #333;
+    color: #d03e0d;
     margin-top: 1rem;
     text-align: center;
 `;
@@ -29,16 +30,6 @@ export const InputField = styled.input`
     font-size: 16px;
 `;
 
-export const SelectField = styled.select`
-    margin-bottom: 10px;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
-    background-color: #fff;
-    color: #333;
-`;
 
 export const SubmitButton = styled.button`
     font-size: 16px;
@@ -80,9 +71,11 @@ export const EditButton = styled.button`
 `;
 
 export const DeleteButton = styled.button`
+    background-color: #ff0000;
     color: #fff;
     border: none;
     padding: 5px 10px;
+    margin-left: 10px;
     cursor: pointer;
 `;
 
@@ -93,14 +86,6 @@ export const TableHeader = styled.th`
     text-align: left;
 `;
 
-export const ActionButton = styled.button`
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin-right: 5px;
-    color: #5187F0;
-    font-size: 16px;
-`;
 
 export const TableRow = styled.tr`
     &:nth-child(even) {
@@ -113,7 +98,7 @@ export const TableCell = styled.td`
 `;
 
 export const VacancyTable = styled.table`
-    width: 100%;
+    width: 70%;
     border-collapse: collapse;
 `;
 
@@ -125,7 +110,7 @@ export const TextareaField = styled.textarea`
     border-radius: 4px;
     font-size: 16px;
     resize: vertical; 
-    line-height: 1.5; 
+    line-height: 2; 
 
     background: repeating-linear-gradient(
         white, 
@@ -139,4 +124,81 @@ export const TextareaField = styled.textarea`
     }
 `;
 
+export const ActionButton = styled.button`
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  margin-right: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #5187F0;
+  }
+`;
+
+export const ActionButtons = styled.button`
+  color: #333;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+`;
+
+export const Modal = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+`;
+
+export const ModalContent = styled.div`
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+`;
+
+export const ModalActions = styled.div`
+  margin-top: 20px;
+`;
+
+
 export const VacancyTableBody = styled.tbody``;
+
+
+export const SelectField = styled.select`
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    background-color: #fff;
+    color: #333;
+`;
+
+export const ExportButton = styled.button`
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+
+    &:hover {
+        background-color: #45a049;
+    }`;
+

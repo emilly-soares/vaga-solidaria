@@ -2,8 +2,7 @@ import React, { createContext, useState, ReactNode, Dispatch, SetStateAction, us
 import { collection, getDocs } from 'firebase/firestore';
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 import { db } from '../services/firebaseConnection';
-
-interface Company {
+export interface Company {
   id: string;
   cnpj: string;
   phone: string;
@@ -23,7 +22,7 @@ interface CompanyContextData {
   loadCompanies: () => void;
 }
 
-const CompanyContext = createContext<CompanyContextData>({
+export const CompanyContext = createContext<CompanyContextData>({
   companies: [],
   setCompanies: () => {},
   loadCompanies: () => {},

@@ -1,4 +1,4 @@
-import React, { createContext, useState, ReactNode, useContext, Dispatch, SetStateAction } from 'react';
+import React, { createContext, useState, ReactNode, useContext, Dispatch, SetStateAction, useEffect } from 'react';
 
 interface UserContextData {
   name: string;
@@ -13,13 +13,13 @@ interface UserContextData {
 
 const UserContext = createContext<UserContextData>({
   name: '',
-  setName: () => {},
+  setName: () => { },
   email: '',
-  setEmail: () => {},
+  setEmail: () => { },
   password: '',
-  setPassword: () => {},
+  setPassword: () => { },
   isAdmin: false,
-  setIsAdmin: () => {}
+  setIsAdmin: () => { }
 });
 
 const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
@@ -27,6 +27,13 @@ const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [isAdmin, setIsAdmin] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (!name && email) {
+      const extractedName = email.split('@')[0];
+      setName(extractedName);
+    }
+  }, [email, name]);
 
   return (
     <UserContext.Provider value={{ name, setName, email, setEmail, password, setPassword, isAdmin, setIsAdmin }}>

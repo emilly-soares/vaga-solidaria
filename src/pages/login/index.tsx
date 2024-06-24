@@ -9,7 +9,6 @@ import logoImg from '../../assets/logo.png';
 import * as S from './style';
 
 export const Login: React.FC = () => {
-
     const { email, setEmail, password, setPassword, setName } = useUser();
     const navigate = useNavigate();
 
@@ -32,14 +31,15 @@ export const Login: React.FC = () => {
         try {
             const result = await signInWithEmailAndPassword(auth, email, password);
             const user = result.user;
-            if (user.displayName) {
-                setName(user.displayName);
-                console.log("Logado com sucesso!");
-                navigate('/');
-            } else {
-                console.log("Nome do usuário não disponível.");
-                navigate('/profile');
+            let displayName = user.displayName;
+
+            if (!displayName) {
+                displayName = email.split('@')[0];
             }
+
+            setName(displayName);
+            console.log("Logado com sucesso!");
+            navigate('/');
         } catch (error) {
             console.error('Erro ao fazer login:', error);
         }
@@ -49,14 +49,16 @@ export const Login: React.FC = () => {
         try {
             const result = await signInWithPopup(auth, googleProvider);
             const user = result.user;
-            if (user.displayName) {
-                setName(user.displayName);
-                console.log("Logado com sucesso com o Google!");
-                navigate('/');
-            } else {
-                console.log("Nome do usuário não disponível.");
-                navigate('/profile');
-            }
+            let displayName = user.displayName;
+
+            if (!displayName) {
+                if (user.email) { displayName = user.email.split('@')[0]; }
+
+            } else
+                if (displayName)
+                    setName(displayName);
+            console.log("Logado com sucesso com o Google!");
+            navigate('/');
         } catch (error) {
             console.error('Erro ao fazer login com o Google:', error);
         }
@@ -64,27 +66,19 @@ export const Login: React.FC = () => {
 
     return (
         <S.Container>
-
             <S.LeftSection>
-
-                <S.GroupLogo to="/" >
+                <S.GroupLogo to="/">
                     <S.Logo src={logoImg} alt="Logo VagaSolidária" />
                     <S.PlatformTitle>VagaSolidária</S.PlatformTitle>
                 </S.GroupLogo>
-
                 <S.ImageContainer>
                     <S.Authentication src={authentication} alt="Autenticação" />
                 </S.ImageContainer>
-
                 <S.Text>Não tem cadastro? </S.Text>
                 <S.ButtonRegister to="/register">Cadastre-se</S.ButtonRegister>
                 <S.Description>Você encontrará oportunidades para impactar positivamente a comunidade</S.Description>
-
             </S.LeftSection>
-
-
             <S.RightSection>
-
                 <S.Form onSubmit={handleSubmit}>
                     <S.Title>Login</S.Title>
                     <S.FormGroup>
@@ -96,7 +90,6 @@ export const Login: React.FC = () => {
                             onChange={handleEmailChange}
                         />
                     </S.FormGroup>
-
                     <S.FormGroup>
                         <S.Label htmlFor="password">Senha:</S.Label>
                         <S.Input
@@ -106,11 +99,10 @@ export const Login: React.FC = () => {
                             onChange={handlePasswordChange}
                         />
                     </S.FormGroup>
-
                     <S.Button type="submit">Login</S.Button>
-
-                    <S.GoogleButton type="button" onClick={handleGoogleLogin}> <FaGoogle style={{ marginRight: '8px' }} />  Login com Google</S.GoogleButton>
-
+                    <S.GoogleButton type="button" onClick={handleGoogleLogin}>
+                        <FaGoogle style={{ marginRight: '8px' }} /> Login com Google
+                    </S.GoogleButton>
                 </S.Form>
             </S.RightSection>
         </S.Container>

@@ -1,6 +1,5 @@
 import { useUser } from '../../contexts/UserContext';
 import logoImg from '../../assets/logo.png';
-
 import * as S from './style';
 
 export function Header() {
