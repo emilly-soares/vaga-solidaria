@@ -3,13 +3,13 @@ import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { auth, googleProvider } from '../../services/firebaseConnection';
 import { useUser } from '../../contexts/UserContext';
-import logoImg from '../../assets/logo.png';
 import authentication from '../../assets/authentication.png';
 import { FaGoogle } from 'react-icons/fa';
+import logoImg from '../../assets/logo.png';
 import * as S from './style';
 
 export const Login: React.FC = () => {
-    
+
     const { email, setEmail, password, setPassword, setName } = useUser();
     const navigate = useNavigate();
 
@@ -67,7 +67,7 @@ export const Login: React.FC = () => {
 
             <S.LeftSection>
 
-                <S.GroupLogo to="/">
+                <S.GroupLogo to="/" >
                     <S.Logo src={logoImg} alt="Logo VagaSolidária" />
                     <S.PlatformTitle>VagaSolidária</S.PlatformTitle>
                 </S.GroupLogo>

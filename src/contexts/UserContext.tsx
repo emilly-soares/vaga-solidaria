@@ -1,5 +1,4 @@
-import React, { createContext, useState, ReactNode, Dispatch, SetStateAction, useContext } from 'react';
-
+import React, { createContext, useState, ReactNode, useContext, Dispatch, SetStateAction } from 'react';
 
 interface UserContextData {
   name: string;
@@ -14,13 +13,13 @@ interface UserContextData {
 
 const UserContext = createContext<UserContextData>({
   name: '',
-  setName: () => { },
+  setName: () => {},
   email: '',
-  setEmail: () => { },
+  setEmail: () => {},
   password: '',
-  setPassword: () => { },
+  setPassword: () => {},
   isAdmin: false,
-  setIsAdmin: () => { }
+  setIsAdmin: () => {}
 });
 
 const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
@@ -45,5 +44,3 @@ const useUser = () => {
 };
 
 export { UserProvider, useUser };
-
-

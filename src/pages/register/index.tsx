@@ -2,10 +2,10 @@ import React, { FormEvent, useState } from 'react';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../services/firebaseConnection';
-import logoImg from '../../assets/logo.png';
 import authentication from '../../assets/authentication.png';
 import * as S from './style';
-import { useUser } from '../../contexts/UserContext'; 
+import { useUser } from '../../contexts/UserContext';
+import logoImg from '../../assets/logo.png';
 
 export const Register: React.FC = () => {
 
@@ -15,7 +15,7 @@ export const Register: React.FC = () => {
 
     const navigate = useNavigate();
 
-    const { setName: setContextName, setEmail: setContextEmail } = useUser(); 
+    const { setName: setContextName, setEmail: setContextEmail } = useUser();
 
     const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(event.target.value);
@@ -61,7 +61,7 @@ export const Register: React.FC = () => {
 
             <S.LeftSection>
 
-                <S.GroupLogo to="/">
+                <S.GroupLogo to="/" >
                     <S.Logo src={logoImg} alt="Logo VagaSolidária" />
                     <S.PlatformTitle>VagaSolidária</S.PlatformTitle>
                 </S.GroupLogo>
@@ -79,43 +79,37 @@ export const Register: React.FC = () => {
 
             <S.RightSection>
 
-                <S.Form onSubmit={handleSubmit}>
-
-                    <S.Title>Cadastro</S.Title>
-
-                    <S.FormGroup>
-                        <S.Label htmlFor="name">Nome:</S.Label>
-                        <S.Input
-                            type="text"
-                            id="name"
-                            value={name}
-                            onChange={handleNameChange}
-                        />
-                    </S.FormGroup>
-
-                    <S.FormGroup>
-                        <S.Label htmlFor="email">Email de usuário:</S.Label>
-                        <S.Input
-                            type="text"
-                            id="email"
-                            value={email}
-                            onChange={handleEmailChange}
-                        />
-                    </S.FormGroup>
-
-                    <S.FormGroup>
-                        <S.Label htmlFor="password">Senha:</S.Label>
-                        <S.Input
-                            type="password"
-                            id="password"
-                            value={password}
-                            onChange={handlePasswordChange}
-                        />
-                    </S.FormGroup>
-
-                    <S.Button type="submit">Cadastrar</S.Button>
-                    
-                </S.Form>
+            <S.Form onSubmit={handleSubmit}>
+                <S.Title>Cadastro</S.Title>
+                <S.FormGroup>
+                    <S.Label htmlFor="name">Nome:</S.Label>
+                    <S.Input
+                        type="text"
+                        id="name"
+                        value={name}
+                        onChange={handleNameChange}
+                    />
+                </S.FormGroup>
+                <S.FormGroup>
+                    <S.Label htmlFor="email">Email de usuário:</S.Label>
+                    <S.Input
+                        type="text"
+                        id="email"
+                        value={email}
+                        onChange={handleEmailChange}
+                    />
+                </S.FormGroup>
+                <S.FormGroup>
+                    <S.Label htmlFor="password">Senha:</S.Label>
+                    <S.Input
+                        type="password"
+                        id="password"
+                        value={password}
+                        onChange={handlePasswordChange}
+                    />
+                </S.FormGroup>
+                <S.Button type="submit">Cadastrar</S.Button>
+            </S.Form>
 
             </S.RightSection>
 

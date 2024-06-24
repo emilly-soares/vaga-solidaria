@@ -8,30 +8,6 @@ export const Container = styled.div`
   height: 100vh;
 `;
 
-export const LeftSection = styled.div`
-  width: 50%;
-  padding-left: 20px;
-  background-color: #5187F0; 
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-`;
-
-export const RightSection = styled.div`
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const GroupLogo = styled(Link)`
-  display: flex;
-  position: relative;
-  align-items: center;
-  margin-bottom: 20px;
-  text-decoration: none; 
-`;
-
 export const Logo = styled.img`
     width: 150px; 
     height: auto; 
@@ -48,7 +24,26 @@ export const PlatformTitle = styled.h1`
     left: 22%;
     transform: translate(-50%, -50%);
     color: #FFF;
+`;
 
+export const GroupLogo = styled(Link)`
+  position: relative;
+`;
+
+export const LeftSection = styled.div`
+  width: 50%;
+  padding-left: 20px;
+  background-color: #5187F0; 
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const RightSection = styled.div`
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ImageContainer = styled.div`
