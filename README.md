@@ -1,6 +1,8 @@
-# Vaga Solidária
+## 🌟 VagaSolidária
 
-## Descrição
+![Logo](https://github.com/emilly-soares/API-VagaSolidaria/assets/54116441/6f94f003-bdca-458e-830a-bfb441cac93d)
+
+## Descrição 🚀
 
 Vaga Solidária é uma plataforma que conecta empresas com vagas disponíveis a indivíduos em busca de oportunidades de emprego, promovendo impacto positivo na comunidade. O projeto é desenvolvido utilizando React, TypeScript, Firebase, e Styled Components, com suporte para autenticação e gerenciamento de Usuários, Vagas e Ongs.
 
